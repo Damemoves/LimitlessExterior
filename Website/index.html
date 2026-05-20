@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Top-rated window cleaning in Etobicoke, Mississauga & across the GTA. No soaps, no streaks, satisfaction guaranteed. Book your free quote today.">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://limitlessexterior.ca">
+<meta property="og:title" content="Limitless Exterior — Window Cleaning Across the GTA">
+<meta property="og:description" content="Top-rated window cleaning in Etobicoke, Mississauga & across the GTA. No soaps, no streaks, satisfaction guaranteed. Book your free quote today.">
+<meta property="og:image" content="https://limitlessexterior.ca/pictures/og-image.png">
+
+<!-- Twitter/iMessage fallback -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://limitlessexterior.ca/pictures/og-image.png">
+
+<title>Limitless Exterior</title>
+<link rel="icon" href="pictures/LimitlessExteriorLogo.svg" type="image/svg+xml">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a0f1e;
+    --navy-mid: #111827;
+    --ice: #d4eaf7;
+    --sky: #5aafd4;
+    --sky-light: #a8d4ed;
+    --white: #ffffff;
+    --cream: #f8f9fb;
+    --muted: #6b7280;
+    --border: rgba(255,255,255,0.1);
+    --gold: #c9a84c;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 0.8rem 3rem;
+    background: var(--navy);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+  }
+
+  .logo img {
+    width: 100px;
+    height: 100px;
+    display: block;
+  }
+
+  .logo-icon {
+    width: 36px; height: 36px;
+    background: var(--sky);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--sky) !important;
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem !important;
+    border-radius: 100px !important;
+    font-weight: 600 !important;
+    transition: background 0.2s, transform 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: #4a9ec3 !important;
+    transform: translateY(-1px);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: opacity 1.5s ease;
+  }
+
+  .hero-fallback {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0a0f1e 0%, #0f2340 40%, #0d3a5c 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Animated water droplets in fallback */
+  .droplet {
+    position: absolute;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(90,175,212,0.6), transparent);
+    animation: drip linear infinite;
+    border-radius: 2px;
+  }
+
+  @keyframes drip {
+    0% { transform: translateY(-100px); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(110vh); opacity: 0; }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+      rgba(10,15,30,0.1) 0%,
+      rgba(10,15,30,0.3) 50%,
+      rgba(10,15,30,0.55) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 1.5rem;
+    max-width: 800px;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(90,175,212,0.2);
+    border: 1px solid rgba(90,175,212,0.4);
+    color: var(--sky-light);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero h1 span {
+    color: var(--sky);
+  }
+
+  .hero p {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.75);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: rgba(255,255,255,0.15);
+    color: var(--white);
+    padding: 0.95rem 2.4rem;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.35);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s, border-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.6);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.9rem 2.2rem;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.4);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.6);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    animation: bounce 2s ease infinite;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.5), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--navy);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+    color: var(--white);
+  }
+
+  .stat-num {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--sky);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 4rem;
+  }
+
+  .section-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 0.8rem;
+  }
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 500px;
+  }
+
+  /* ── SERVICES ── */
+  #services {
+    background: var(--cream);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform 0.3s, box-shadow 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s, box-shadow 0.3s;
+  }
+
+  .service-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .service-card:hover {
+    box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+  }
+
+  .service-icon {
+    width: 52px; height: 52px;
+    background: rgba(90,175,212,0.12);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .service-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--navy);
+  }
+
+  .service-card p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    background: var(--navy);
+  }
+
+  #testimonials .section-title { color: var(--white); }
+  #testimonials .section-label { color: var(--sky-light); }
+  #testimonials .section-sub { color: rgba(255,255,255,0.55); }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .testimonial-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 20px;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+  }
+
+  .testimonial-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stars {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .testimonial-card p {
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .reviewer-avatar {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--white);
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--white);
+  }
+
+  .reviewer-loc {
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* ── FAQ ── */
+  #faq { background: var(--navy); }
+  #faq .section-title { color: var(--white); }
+  #faq .section-label { color: var(--sky-light); }
+
+  .faq-list {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 720px;
+  }
+
+  .faq-item {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .faq-question {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: none;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    text-align: left;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+
+  .faq-question:hover { background: rgba(255,255,255,0.07); }
+
+  .faq-icon {
+    font-size: 1.2rem;
+    color: var(--sky);
+    flex-shrink: 0;
+    transition: transform 0.3s;
+    font-style: normal;
+  }
+
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    padding: 0 1.5rem;
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 200px;
+    padding: 0 1.5rem 1.2rem;
+  }
+
+  /* ── BOOKING ── */
+  #booking {
+    background: var(--cream);
+    padding-top: 1rem;
+    padding-bottom: 4rem;
+  }
+
+  #booking .section-label,
+  #booking .section-title {
+    display: none;
+  }
+
+  .booking-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 4rem;
+    margin-top: 0;
+    align-items: start;
+  }
+
+  .booking-info h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--navy);
+  }
+
+  .booking-info p {
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .booking-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .booking-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.9rem;
+    color: var(--navy);
+  }
+
+  .check {
+    width: 22px; height: 22px;
+    background: rgba(90,175,212,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sky);
+    font-size: 0.7rem;
+    flex-shrink: 0;
+  }
+
+  .booking-form {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2.5rem;
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  }
+
+  .form-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--navy);
+    background: var(--cream);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--sky);
+    box-shadow: 0 0 0 3px rgba(90,175,212,0.15);
+    background: var(--white);
+  }
+
+  .time-slots {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .time-slot {
+    padding: 0.55rem 0.4rem;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--navy);
+    background: var(--cream);
+    user-select: none;
+  }
+
+  .time-slot:hover {
+    border-color: var(--sky);
+    color: var(--sky);
+    background: rgba(90,175,212,0.08);
+  }
+
+  .time-slot.selected {
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--white);
+  }
+
+  .zone-select {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+    margin-top: 0.4rem;
+  }
+
+  .zone-btn {
+    padding: 0.6rem;
+    border: 1.5px solid rgba(0,0,0,0.1);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--navy);
+    background: var(--cream);
+    user-select: none;
+  }
+
+  .zone-btn:hover {
+    border-color: var(--sky);
+    color: var(--sky);
+    background: rgba(90,175,212,0.08);
+  }
+
+  .zone-btn.selected {
+    background: var(--sky);
+    border-color: var(--sky);
+    color: var(--white);
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--navy);
+    color: var(--white);
+    padding: 1rem;
+    border: none;
+    border-radius: 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .submit-btn:hover {
+    background: var(--sky);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 30px rgba(90,175,212,0.4);
+  }
+
+  .success-msg {
+    display: none;
+    background: rgba(90,175,212,0.1);
+    border: 1px solid rgba(90,175,212,0.3);
+    border-radius: 12px;
+    padding: 1rem;
+    text-align: center;
+    color: var(--sky);
+    font-weight: 500;
+    margin-top: 1rem;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--navy-mid);
+  }
+
+  #contact .section-title { color: var(--white); }
+  #contact .section-label { color: var(--sky-light); }
+  #contact .section-sub { color: rgba(255,255,255,0.55); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 3rem;
+    align-items: start;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: rgba(255,255,255,0.8);
+    font-size: 0.95rem;
+  }
+
+  .contact-icon {
+    width: 44px; height: 44px;
+    background: rgba(90,175,212,0.15);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.85rem 1rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    color: var(--white);
+    background: rgba(255,255,255,0.06);
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: rgba(255,255,255,0.3);
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--sky);
+    background: rgba(255,255,255,0.08);
+  }
+
+  .contact-form textarea { height: 120px; resize: none; }
+
+  .contact-submit {
+    background: var(--sky);
+    color: var(--white);
+    padding: 0.9rem;
+    border: none;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .contact-submit:hover {
+    background: #4a9ec3;
+    transform: translateY(-1px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 3rem 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .footer-copy {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .social-links {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .social-link {
+    width: 38px; height: 38px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .social-link:hover {
+    background: var(--sky);
+    color: var(--white);
+    border-color: var(--sky);
+  }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+    z-index: 101;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all 0.3s;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    section { padding: 4rem 1.5rem; }
+    .stats-bar { padding: 2rem 1.5rem; gap: 2.5rem; }
+    .booking-wrapper { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    .hamburger { display: flex; }
+    .nav-links {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(10,15,30,0.97);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+      z-index: 100;
+    }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 1.2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .time-slots { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <img src="pictures/LimitlessExteriorLogo.svg" alt="Limitless Exterior logo">
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" onclick="closeMenu()">Home</a></li>
+    <li><a href="#testimonials" onclick="closeMenu()">Testimonials</a></li>
+    <li><a href="#faq" onclick="closeMenu()">FAQ</a></li>
+    <li><a href="#booking" class="nav-cta" onclick="closeMenu()">Free Quote</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="home">
+  <video class="hero-video" id="heroVideo0" autoplay muted playsinline></video>
+  <video class="hero-video" id="heroVideo1" muted playsinline style="opacity:0;transition:opacity 1.5s ease;"></video>
+
+  <!-- Animated fallback (shows when no video) -->
+  <div class="hero-fallback" id="heroFallback">
+    <!-- Animated drips -->
+  </div>
+
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-buttons">
+      <a href="#booking" class="btn-primary">Get a Free Quote</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
+</section>
+
+
+<!-- ── SERVICES ── -->
+<section id="services">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">What We Do</div>
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1rem;">
+      <h2 class="section-title">Premium Window Cleaning,<br>Done Right</h2>
+      <p class="section-sub">Pure water technology that leaves zero streaks, zero residue, and windows that stay cleaner longer.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🏠</div>
+        <h3>Residential Cleaning</h3>
+        <p>From bungalows to two-storey homes — we reach every window safely from the ground using our extended waterfed poles.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏢</div>
+        <h3>Commercial Cleaning</h3>
+        <p>Storefronts, offices, and multi-unit buildings. We work around your schedule to minimize disruption.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💧</div>
+        <h3>Pure Water System</h3>
+        <p>Our waterfed brush system uses 100% purified water — no soaps, no chemicals, no streaks. Safe for your family and the environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TESTIMONIALS ── -->
+<section id="testimonials">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-sub">Hundreds of homeowners and businesses across the GTA trust us to keep their windows crystal clear.</p>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Absolutely incredible service. They showed up on time, were professional, and my windows have never looked this clean. You can't even tell there's glass there!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background: #5aafd4;">SK</div>
+          <div>
+            <div class="reviewer-name">Sarah K.</div>
+            <div class="reviewer-loc">Etobicoke, ON</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"I've tried other window cleaners and nothing compares. The pure water system leaves zero streaks. Booked again for next month already."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background: #c9a84c;">MR</div>
+          <div>
+            <div class="reviewer-name">Mike R.</div>
+            <div class="reviewer-loc">Mississauga, ON</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="stars">★★★★★</div>
+        <p>"Fast, efficient, and reasonably priced. My storefront looks like it just opened for the first time. Customers have actually noticed and commented!"</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background: #6b9e6e;">JP</div>
+          <div>
+            <div class="reviewer-name">Jennifer P.</div>
+            <div class="reviewer-loc">North York, ON</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section id="faq">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Common Questions</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do I need to be home during the cleaning?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Nope — as long as we can access the outside of your windows, you don't need to be there. Just let us know ahead of time and we'll take care of the rest.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How long does a typical job take?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Most residential homes take between 1–2 hours depending on the number of windows and accessibility. We'll give you a more accurate estimate when you book.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What if it rains right after you clean?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Rain actually doesn't leave marks — it's the dirt and minerals in the water that do. Since we use 100% purified water, rainwater won't leave any spots on your windows.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Do you use soaps or chemicals?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">Never. Our pure water system is completely chemical-free, making it safe for your family, pets, and garden.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How often should I get my windows cleaned?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">For most homes, 2–4 times a year keeps things looking great. High-traffic areas or homes near busy roads may benefit from more frequent cleans.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What areas do you serve?
+          <i class="faq-icon">+</i>
+        </button>
+        <div class="faq-answer">We serve the GTA and surrounding areas including Etobicoke, North York, Brampton, and Mississauga. Not sure if we cover your area? Send us a message and we'll let you know.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── BOOKING ── -->
+<section id="booking">
+  <div style="max-width: 1200px; margin: 0 auto;">
+    <div class="section-label">Book Now</div>
+    <h2 class="section-title">Request a Quote</h2>
+
+    <div class="booking-wrapper">
+      <div class="booking-info">
+        <h3>We'll get back to you the same day.</h3>
+        <p>Leave your details and we'll reach out to confirm availability and give you a price. No commitment, no pressure.</p>
+        <ul class="booking-features">
+          <li><span class="check">✓</span> Free quote — no obligation</li>
+          <li><span class="check">✓</span> Same-day response</li>
+          <li><span class="check">✓</span> Satisfaction guaranteed or we come back free</li>
+        </ul>
+
+        <div class="booking-contact-details">
+          <div class="booking-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6.29 6.29l1.85-1.85a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>(647) 807-5919</span>
+          </div>
+          <div class="booking-contact-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>info@limitlessexterior.ca</span>
+          </div>
+          <div style="display:flex;gap:0.6rem;margin-top:0.5rem;">
+            <a href="https://www.instagram.com/limitless.exterior/" target="_blank" rel="noopener" class="social-link" title="Instagram">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61589252013529" target="_blank" rel="noopener" class="social-link" title="Facebook">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-form">
+        <div class="form-title">Get in Touch</div>
+
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="John Smith" id="firstName">
+        </div>
+
+        <div class="form-group">
+          <label>Phone Number</label>
+          <input type="tel" placeholder="(647) 555-0123" id="phone">
+        </div>
+
+        <div class="form-group">
+          <label>Your Address</label>
+          <input type="text" placeholder="123 Main St, Etobicoke" id="address">
+        </div>
+
+        <div class="form-group">
+          <label>Anything else we should know? <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
+          <textarea id="bookingMessage" placeholder="e.g. 2-storey home, back windows only, preferred timing..." style="height:90px;resize:none;padding:0.75rem 1rem;border:1.5px solid rgba(0,0,0,0.1);border-radius:12px;font-family:'DM Sans',sans-serif;font-size:0.95rem;color:var(--navy);background:var(--cream);outline:none;width:100%;transition:border-color 0.2s,box-shadow 0.2s;"></textarea>
+        </div>
+
+        <button class="submit-btn" onclick="submitBooking()">Request a Quote</button>
+        <div class="success-msg" id="successMsg">
+          ✓ Got it! We'll be in touch today.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Limitless Exterior</div>
+  <div class="footer-copy">© 2026 Limitless Exterior. All rights reserved.</div>
+  <div style="display: flex; gap: 0.8rem;">
+    <a href="https://www.instagram.com/limitless.exterior/" target="_blank" rel="noopener" class="social-link" title="Instagram">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61589252013529" target="_blank" rel="noopener" class="social-link" title="Facebook">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+    </a>
+    <a href="https://www.tiktok.com/@limitlessexterior" target="_blank" rel="noopener" class="social-link" title="TikTok">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.27 8.27 0 0 0 4.84 1.55V6.79a4.85 4.85 0 0 1-1.07-.1z"/></svg>
+    </a>
+  </div>
+</footer>
+
+<script>
+  // ── FORMSPREE IDs ──────────────────────────────────────────────────────────
+  // Sign up free at formspree.io with info@limitlessexterior.ca, create two
+  // forms, and replace the placeholders below with your real form IDs.
+  const BOOKING_FORM_ID = 'YOUR_BOOKING_FORM_ID';
+  const CONTACT_FORM_ID = 'YOUR_CONTACT_FORM_ID';
+  // ──────────────────────────────────────────────────────────────────────────
+
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Hamburger menu
+  function toggleMenu() {
+    const nav = document.getElementById('navLinks');
+    const btn = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('navLinks').classList.remove('open');
+    document.getElementById('hamburger').classList.remove('open');
+  }
+
+  // Video crossfade cycling
+  const heroVideos = ['videos/video1.mp4', 'videos/video2.mp4'];
+  const v = [document.getElementById('heroVideo0'), document.getElementById('heroVideo1')];
+  let curr = 0;
+  let nextIdx = 1;
+
+  // Preload both videos upfront
+  v[0].src = heroVideos[0];
+  v[1].src = heroVideos[1];
+
+  function crossfade() {
+    const nextEl = v[1 - curr];
+    const currEl = v[curr];
+    nextEl.currentTime = 0;
+    nextEl.play().catch(() => {});
+    nextEl.style.opacity = '1';
+    currEl.style.opacity = '0';
+    curr = 1 - curr;
+    nextIdx = (nextIdx + 1) % heroVideos.length;
+    // Preload what comes after next
+    v[1 - curr].src = heroVideos[nextIdx];
+  }
+
+  v[0].addEventListener('ended', crossfade);
+  v[1].addEventListener('ended', crossfade);
+
+  // Animated water drips in fallback
+  const fallback = document.getElementById('heroFallback');
+  const video = v[0];
+  video.addEventListener('error', showFallback);
+  video.addEventListener('loadeddata', () => { fallback.style.display = 'none'; });
+
+  v[0].style.opacity = '1';
+  v[0].play().catch(showFallback);
+
+  function showFallback() {
+    fallback.style.display = 'flex';
+    for (let i = 0; i < 30; i++) {
+      const d = document.createElement('div');
+      d.className = 'droplet';
+      d.style.left = Math.random() * 100 + '%';
+      d.style.height = (40 + Math.random() * 80) + 'px';
+      d.style.animationDuration = (3 + Math.random() * 5) + 's';
+      d.style.animationDelay = (Math.random() * 5) + 's';
+      fallback.appendChild(d);
+    }
+  }
+  showFallback();
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.service-card, .testimonial-card').forEach(el => observer.observe(el));
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const item = btn.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  // Time slot / zone selection
+  function selectSlot(el) {
+    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+  function selectZone(el) {
+    document.querySelectorAll('.zone-btn').forEach(z => z.classList.remove('selected'));
+    el.classList.add('selected');
+  }
+
+  // Booking form → Formspree
+  async function submitBooking() {
+    const name    = document.getElementById('firstName').value.trim();
+    const phone   = document.getElementById('phone').value.trim();
+    const address = document.getElementById('address').value.trim();
+    const message = document.getElementById('bookingMessage').value.trim();
+
+    if (!name || !phone || !address) {
+      alert('Please fill in your name, phone, and address.');
+      return;
+    }
+
+    const btn = document.querySelector('.submit-btn');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${BOOKING_FORM_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, phone, address, message, _subject: `Quote request from ${name}` })
+      });
+
+      if (res.ok) {
+        const successMsg = document.getElementById('successMsg');
+        successMsg.style.display = 'block';
+        successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        btn.textContent = 'Sent ✓';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      btn.textContent = 'Request a Quote';
+      btn.disabled = false;
+      alert('Something went wrong. Please call us at (647) 807-5919');
+    }
+  }
+
+  // Contact form → Formspree
+  async function submitContact(btn) {
+    const name    = document.getElementById('contactName').value.trim();
+    const email   = document.getElementById('contactEmail').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${CONTACT_FORM_ID}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ name, email, message, _subject: `Message from ${name}` })
+      });
+
+      if (res.ok) {
+        document.getElementById('contactSuccess').style.display = 'block';
+        btn.textContent = 'Sent ✓';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      btn.textContent = 'Send Message →';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us at info@limitlessexterior.ca');
+    }
+  }
+</script>
+</body>
+</html>
