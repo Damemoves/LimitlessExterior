@@ -1,2 +1,2 @@
 # LimitlessExterior
-Landing page for Limitless Exterior — window cleaning &amp; pressure washing serving Etobicoke, Barrie &amp; the GTA
+Landing page for Limitless Exterior — window cleaning &amp; pressure washing serving Etobicoke &amp; the GTA
