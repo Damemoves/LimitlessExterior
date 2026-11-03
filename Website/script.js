@@ -1,76 +1,90 @@
-// Navbar scroll effect
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Animated water drips in fallback
-const fallback = document.getElementById('heroFallback');
-const video = document.querySelector('.hero-video');
-
-// Check if video fails to load
-video.addEventListener('error', showFallback);
-video.addEventListener('loadeddata', () => { fallback.style.display = 'none'; });
-
-function showFallback() {
-  fallback.style.display = 'flex';
-  for (let i = 0; i < 30; i++) {
-    const d = document.createElement('div');
-    d.className = 'droplet';
-    d.style.left = Math.random() * 100 + '%';
-    d.style.height = (40 + Math.random() * 80) + 'px';
-    d.style.animationDuration = (3 + Math.random() * 5) + 's';
-    d.style.animationDelay = (Math.random() * 5) + 's';
-    fallback.appendChild(d);
-  }
+// Mobile menu
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.getElementById('site-nav');
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
 }
 
-// Show fallback immediately as placeholder until video loads
-showFallback();
+// Hero video: crossfade between clips (skipped when reduced motion is on)
+const vids = document.querySelectorAll('.hero-media video');
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (vids.length === 2 && !reduce) {
+  let cur = 0;
+  vids[0].play().catch(() => {});
+  vids.forEach((v, i) => v.addEventListener('ended', () => {
+    if (i !== cur) return;
+    const next = 1 - cur;
+    vids[next].currentTime = 0;
+    vids[next].play().catch(() => {});
+    vids[next].style.opacity = 1;
+    vids[cur].style.opacity = 0;
+    cur = next;
+  }));
+} else if (reduce) {
+  vids.forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+}
 
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 100);
+// Booking calendar: mark the current month
+const months = document.querySelectorAll('.cal-months b');
+if (months.length === 12) {
+  const now = new Date();
+  months[now.getMonth()].classList.add('now');
+  const pct = ((now.getMonth() + now.getDate() / 31) / 12) * 100;
+  document.querySelectorAll('.cal-track').forEach(t => {
+    const line = document.createElement('span');
+    line.className = 'cal-now';
+    line.style.left = pct + '%';
+    t.appendChild(line);
+  });
+}
+
+// Quote form → Netlify Forms
+document.querySelectorAll('form[data-quote]').forEach(form => {
+  const status = form.querySelector('.form-status');
+  const btn = form.querySelector('button[type=submit]');
+  const params = new URLSearchParams(location.search);
+  const pre = params.get('service');
+  if (pre) form.querySelectorAll('input[name=service]').forEach(c => { if (c.value === pre) c.checked = true; });
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    status.className = 'form-status';
+    const picked = [...form.querySelectorAll('input[name=service]:checked')].map(c => c.value);
+    if (!picked.length) {
+      status.textContent = 'Pick at least one service so we can quote it.';
+      status.classList.add('err');
+      return;
+    }
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    form.querySelector('input[name=services]').value = picked.join(', ');
+
+    const data = new FormData(form);
+    data.delete('service');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      const res = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      });
+      if (!res.ok) throw new Error(res.status);
+      form.reset();
+      status.textContent = 'Request sent. We\'ll get back to you today with a price.';
+      status.classList.add('ok');
+      btn.textContent = 'Request sent';
+    } catch {
+      status.innerHTML = 'That didn\'t send. Call or text <a href="tel:+16478075919">(647) 807-5919</a> and we\'ll quote you right away.';
+      status.classList.add('err');
+      btn.disabled = false;
+      btn.textContent = 'Get my free quote';
     }
   });
-}, { threshold: 0.1 });
-
-document.querySelectorAll('.service-card, .testimonial-card').forEach(el => observer.observe(el));
-
-// Time slot selection
-function selectSlot(el) {
-  document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-// Zone selection
-function selectZone(el) {
-  document.querySelectorAll('.zone-btn').forEach(z => z.classList.remove('selected'));
-  el.classList.add('selected');
-}
-
-// Set min date to today
-const dateInput = document.getElementById('bookDate');
-const today = new Date().toISOString().split('T')[0];
-dateInput.min = today;
-
-// Submit booking
-function submitBooking() {
-  const firstName = document.getElementById('firstName').value;
-  const phone = document.getElementById('phone').value;
-  const email = document.getElementById('email').value;
-  const zone = document.querySelector('.zone-btn.selected');
-  const slot = document.querySelector('.time-slot.selected');
-  const date = document.getElementById('bookDate').value;
-  const windows = document.getElementById('windowCount').value;
-
-  if (!firstName || !phone || !email || !zone || !slot || !date || !windows) {
-    alert('Please fill in all fields and select a time slot and zone.');
-    return;
-  }
-
-  const successMsg = document.getElementById('successMsg');
-  successMsg.style.display = 'block';
-  successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
+});
