@@ -208,7 +208,7 @@ def header(active=None):
     links = "\n".join(
         f'<a href="/{s["slug"]}/"{" aria-current=\"page\"" if s["slug"] == active else ""}>{s["nav"]}</a>'
         for s in SERVICES)
-    return f"""<div class="season-bar"><div class="wrap"><span class="bulbs" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Now booking Christmas light installs and gutter cleanings.</span> <a href="/christmas-light-installation/">Book your date</a></div></div>
+    return f"""<div class="season-bar"><div class="wrap"><span class="bulbs" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span>Now booking Christmas light installs and gutter cleanings.</span> <a href="/christmas-light-installation/?service=Christmas%20Light%20Installation#quote">Book your date</a></div></div>
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/" aria-label="Limitless Exterior home"><img src="/pictures/LimitlessExteriorLogo.svg" alt="Limitless Exterior" width="100" height="48"></a>
